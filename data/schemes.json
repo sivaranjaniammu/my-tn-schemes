@@ -1,0 +1,988 @@
+{
+  "categories": [
+    {
+      "id": "education",
+      "name_en": "Education",
+      "name_ta": "கல்வி",
+      "icon": "🎓",
+      "isMain": true,
+      "schemes": [
+        {
+          "id": "ed_new1",
+          "name_en": "Tamil Pudhalvan Scheme",
+          "name_ta": "தமிழ் புதல்வன் திட்டம்",
+          "description_en": "Aims to encourage male students from government schools to pursue higher education by providing ₹1,000 per month.",
+          "description_ta": "அரசுப் பள்ளிகளில் பயின்ற மாணவர்களின் உயர்கல்வியை ஊக்குவிக்கும் வகையில் மாதம் ₹1,000 வழங்கும் திட்டம்.",
+          "documents": [
+            "Aadhaar Card",
+            "Bank Account linked to Aadhaar",
+            "Class 10th and 12th Educational Certificates",
+            "College Enrollment Proof",
+            "UMIS/EMIS Registration ID"
+          ],
+          "eligibility_en": [
+            "Must be a male student residing in Tamil Nadu",
+            "Must have completed Class 6 to 12 in a State Government/Government-aided school",
+            "Must be enrolled in their first higher education course (UG degree, diploma, ITI)"
+          ],
+          "eligibility_ta": [
+            "தமிழ்நாட்டில் வசிக்கும் ஆண் மாணவராக இருக்க வேண்டும்",
+            "மாநில அரசு/அரசு நிதி உதவி பெறும் பள்ளியில் 6 முதல் 12 ஆம் வகுப்பு வரை படித்திருக்க வேண்டும்",
+            "தங்களது முதல் உயர்கல்வி படிப்பில் சேர்ந்திருக்க வேண்டும்"
+          ],
+          "link": "https://umis.tn.gov.in/"
+        },
+        {
+          "id": "ed1",
+          "name_en": "Chief Minister's Breakfast Scheme",
+          "name_ta": "முதலமைச்சரின் காலை உணவு திட்டம்",
+          "description_en": "Free nutritious breakfast provided to government school students from Class 1-5 to improve attendance and health.",
+          "description_ta": "வருகை மற்றும் ஆரோக்கியத்தை மேம்படுத்த அரசு பள்ளி 1-5 வகுப்பு மாணவர்களுக்கு இலவச சத்தான காலை உணவு.",
+          "documents": [
+            "School Enrollment Certificate",
+            "Aadhaar Card (Child)",
+            "Parent Aadhaar Card"
+          ],
+          "eligibility_en": [
+            "Students of Class 1-5 enrolled in Tamil Nadu government schools",
+            "Must be a regular attendee"
+          ],
+          "eligibility_ta": [
+            "தமிழ்நாடு அரசு பள்ளிகளில் 1 முதல் 5 வரை படிக்கும் மாணவர்கள்",
+            "தவறாமல் வருகை பதிவிட வேண்டும்"
+          ],
+          "link": "https://www.tnschools.gov.in"
+        },
+        {
+          "id": "ed2",
+          "name_en": "Free Laptop Scheme",
+          "name_ta": "இலவச மடிக்கணினி திட்டம்",
+          "description_en": "Laptops distributed to Class 11 and first-year college students in government institutions to bridge the digital divide.",
+          "description_ta": "டிஜிட்டல் இடைவெளியை குறைக்க அரசு நிறுவனங்களில் 11ம் வகுப்பு மற்றும் முதலாம் ஆண்டு மாணவர்களுக்கு மடிக்கணினி.",
+          "documents": [
+            "School/College ID Card",
+            "Aadhaar Card",
+            "Community Certificate",
+            "Income Certificate"
+          ],
+          "eligibility_en": [
+            "Class 11 students in Tamil Nadu government schools",
+            "First-year students in government arts & science colleges",
+            "Must not have received a laptop previously"
+          ],
+          "eligibility_ta": [
+            "தமிழ்நாடு அரசு பள்ளிகளில் 11ம் வகுப்பு மாணவர்கள்",
+            "அரசு கலை மற்றும் அறிவியல் கல்லூரிகளில் முதலாம் ஆண்டு மாணவர்கள்",
+            "முன்பு மடிக்கணினி பெறாமல் இருக்க வேண்டும்"
+          ],
+          "link": "https://www.tnschools.gov.in"
+        },
+        {
+          "id": "ed3",
+          "name_en": "Scholarship for SC/ST Students",
+          "name_ta": "எஸ்சி/எஸ்டி மாணவர்களுக்கான உதவித்தொகை",
+          "description_en": "Financial assistance covering tuition fees, hostel charges, and living allowances for SC/ST students pursuing higher education.",
+          "description_ta": "உயர்கல்வி பயிலும் எஸ்சி/எஸ்டி மாணவர்களுக்கு கல்விக் கட்டணம், விடுதி கட்டணம் மற்றும் வாழ்க்கை படிகள் நிதி உதவி.",
+          "documents": [
+            "Caste Certificate (SC/ST)",
+            "Income Certificate",
+            "Aadhaar Card",
+            "Bank Account Details",
+            "College Admission Proof"
+          ],
+          "eligibility_en": [
+            "SC/ST students enrolled in recognized colleges/universities",
+            "Annual family income below ₹2.5 lakh",
+            "Must not be employed"
+          ],
+          "eligibility_ta": [
+            "அங்கீகரிக்கப்பட்ட கல்லூரி/பல்கலைக்கழகத்தில் படிக்கும் எஸ்சி/எஸ்டி மாணவர்கள்",
+            "ஆண்டு குடும்ப வருமானம் ₹2.5 லட்சத்திற்கும் கீழ்",
+            "வேலையில் இல்லாமல் இருக்க வேண்டும்"
+          ],
+          "link": "https://www.adi-dravidar.tn.gov.in"
+        },
+        {
+          "id": "ed4",
+          "name_en": "First Graduate Scholarship",
+          "name_ta": "முதல் தலைமுறை பட்டதாரி உதவித்தொகை",
+          "description_en": "Monthly stipend of ₹1000 for first-generation college graduates from economically poor families.",
+          "description_ta": "ஏழை குடும்பத்தில் முதல் தலைமுறையாக கல்லூரி படிக்கும் மாணவர்களுக்கு மாதம் ₹1000 ஊதியம்.",
+          "documents": [
+            "Affidavit that no family member has a graduation degree",
+            "Income Certificate",
+            "Aadhaar Card",
+            "Admission Letter"
+          ],
+          "eligibility_en": [
+            "First graduate in the family",
+            "Annual family income below ₹2,50,000",
+            "Must be studying full-time in a recognized college"
+          ],
+          "eligibility_ta": [
+            "குடும்பத்தில் முதல் பட்டதாரி",
+            "ஆண்டு குடும்ப வருமானம் ₹2,50,000-க்கும் குறைவாக",
+            "அங்கீகரிக்கப்பட்ட கல்லூரியில் முழு நேரம் படிக்க வேண்டும்"
+          ],
+          "link": "https://www.tnscholarship.gov.in"
+        },
+        {
+          "id": "ed5",
+          "name_en": "Free Bus Pass for Students",
+          "name_ta": "மாணவர்களுக்கு இலவச பேருந்து சீட்டு",
+          "description_en": "Free bus pass for students traveling to schools and colleges in Tamil Nadu State Transport Corporation buses.",
+          "description_ta": "தமிழ்நாடு மாநில போக்குவரத்து நிறுவன பேருந்துகளில் பள்ளி மற்றும் கல்லூரிக்கு பயணிக்கும் மாணவர்களுக்கு இலவச பேருந்து பாஸ்.",
+          "documents": [
+            "School/College ID Card",
+            "Aadhaar Card",
+            "Residence Proof"
+          ],
+          "eligibility_en": [
+            "All students studying in government and government-aided institutions",
+            "Must reside at least 3 km from institution"
+          ],
+          "eligibility_ta": [
+            "அரசு மற்றும் அரசு உதவிபெறும் நிறுவனங்களில் படிக்கும் மாணவர்கள்",
+            "நிறுவனத்திலிருந்து குறைந்தது 3 கி.மீ தொலைவில் வசிக்க வேண்டும்"
+          ],
+          "link": "https://www.tnstc.in"
+        }
+      ]
+    },
+    {
+      "id": "health",
+      "name_en": "Health",
+      "name_ta": "சுகாதாரம்",
+      "icon": "🏥",
+      "isMain": true,
+      "schemes": [
+        {
+          "id": "h1",
+          "name_en": "Chief Minister's Comprehensive Health Insurance Scheme",
+          "name_ta": "முதலமைச்சர் விரிவான சுகாதார காப்பீட்டு திட்டம்",
+          "description_en": "Cashless treatment up to ₹5 lakh per year for families at empanelled hospitals covering 1,027+ procedures.",
+          "description_ta": "1,027+ சிகிச்சை முறைகளை உள்ளடக்கிய அங்கீகரிக்கப்பட்ட மருத்துவமனைகளில் குடும்பத்திற்கு ஆண்டுக்கு ₹5 லட்சம் வரை பணமில்லா சிகிச்சை.",
+          "documents": [
+            "Ration Card",
+            "Aadhaar Card",
+            "Income Certificate (below ₹72,000/year)"
+          ],
+          "eligibility_en": [
+            "Annual family income below ₹72,000",
+            "Must hold a valid ration card",
+            "Covers entire family (up to 5 members)"
+          ],
+          "eligibility_ta": [
+            "ஆண்டு குடும்ப வருமானம் ₹72,000-க்கும் கீழ்",
+            "சரியான ரேஷன் கார்டு வைத்திருக்க வேண்டும்",
+            "முழு குடும்பத்தையும் (5 உறுப்பினர்கள் வரை) உள்ளடக்குகிறது"
+          ],
+          "link": "https://www.cmchistn.com"
+        },
+        {
+          "id": "h2",
+          "name_en": "Makkalai Thedi Maruthuvam",
+          "name_ta": "மக்களை தேடி மருத்துவம்",
+          "description_en": "Doorstep health screening and treatment for chronic diseases for rural and urban populations.",
+          "description_ta": "கிராமப்புற மற்றும் நகர்ப்புற மக்களுக்கு நாட்பட்ட நோய்களுக்கு வீட்டு வாசல் சுகாதார பரிசோதனை மற்றும் சிகிச்சை.",
+          "documents": [
+            "Aadhaar Card",
+            "Ration Card"
+          ],
+          "eligibility_en": [
+            "All residents of Tamil Nadu",
+            "Priority to elderly and differently-abled persons",
+            "Free of cost for all"
+          ],
+          "eligibility_ta": [
+            "தமிழ்நாட்டின் அனைத்து குடியிருப்பாளர்களும்",
+            "முதியோர் மற்றும் மாற்றுத்திறனாளிகளுக்கு முன்னுரிமை",
+            "அனைவருக்கும் இலவசம்"
+          ],
+          "link": "https://www.tn.gov.in/scheme/data_view/8099"
+        },
+        {
+          "id": "h3",
+          "name_en": "Tamil Nadu Health System Reform Programme",
+          "name_ta": "தமிழ்நாடு சுகாதார அமைப்பு சீர்திருத்த திட்டம்",
+          "description_en": "Strengthening public health infrastructure to provide quality healthcare at primary health centres.",
+          "description_ta": "ஆரம்பச் சுகாதார நிலையங்களில் தரமான சுகாதார சेवைகளை வழங்க பொது சுகாதார உள்கட்டமைப்பை வலுப்படுத்துதல்.",
+          "documents": [
+            "No documents required – walk-in facility"
+          ],
+          "eligibility_en": [
+            "All Tamil Nadu residents",
+            "Services available at all government PHCs",
+            "Free services for BPL families"
+          ],
+          "eligibility_ta": [
+            "தமிழ்நாட்டின் அனைத்து குடியிருப்பாளர்களும்",
+            "அனைத்து அரசு PHC-களிலும் சேவைகள் கிடைக்கும்",
+            "BPL குடும்பங்களுக்கு இலவச சேவைகள்"
+          ],
+          "link": "https://www.tnhealth.tn.gov.in"
+        },
+        {
+          "id": "h4",
+          "name_en": "Mother and Child Health Scheme",
+          "name_ta": "தாய் மற்றும் குழந்தை சுகாதார திட்டம்",
+          "description_en": "Free antenatal care, institutional delivery, and postnatal care for pregnant women and newborns.",
+          "description_ta": "கர்ப்பிணி பெண்கள் மற்றும் புதிதாக பிறந்த குழந்தைகளுக்கு இலவச மகப்பேறுக்கு முந்திய பராமரிப்பு, நிறுவன பிரசவம் மற்றும் பிரசவத்திற்கு பின் பராமரிப்பு.",
+          "documents": [
+            "Aadhaar Card",
+            "Marriage Certificate",
+            "Previous health records (if any)"
+          ],
+          "eligibility_en": [
+            "All pregnant women in Tamil Nadu",
+            "Newborns up to 1 year of age",
+            "Free for all regardless of income"
+          ],
+          "eligibility_ta": [
+            "தமிழ்நாட்டில் அனைத்து கர்ப்பிணி பெண்களும்",
+            "1 வயது வரையிலான புதிதாக பிறந்த குழந்தைகள்",
+            "வருமானம் பொருட்படுத்தாமல் அனைவருக்கும் இலவசம்"
+          ],
+          "link": "https://www.tnhealth.tn.gov.in"
+        }
+      ]
+    },
+    {
+      "id": "women",
+      "name_en": "Women Welfare",
+      "name_ta": "பெண்கள் நலன்",
+      "icon": "👩",
+      "isMain": true,
+      "schemes": [
+        {
+          "id": "w_new1",
+          "name_en": "Moovalur Ramamirtham Ammaiyar Higher Education Assurance Scheme (Pudhumai Penn)",
+          "name_ta": "மூவலூர் ராமாமிர்தம் அம்மையார் உயர்கல்வி உறுதித் திட்டம் (புதுமைப் பெண்)",
+          "description_en": "Provides a monthly financial assistance of ₹1,000 to girl students from government schools pursuing higher education.",
+          "description_ta": "அரசுப் பள்ளிகளில் பயின்று உயர்கல்வி தொடரும் மாணவிகளுக்கு மாதம் ₹1,000 நிதியுதவி வழங்கும் திட்டம்.",
+          "documents": [
+            "Aadhaar Card",
+            "Residence Proof of Tamil Nadu",
+            "Bank Account Details",
+            "Class 10th and 12th Marksheets",
+            "Transfer Certificate (TC)"
+          ],
+          "eligibility_en": [
+            "Must be a girl student residing in Tamil Nadu",
+            "Must have studied from Class 6 to 12 in a State Government/Government-aided school",
+            "Must be enrolled in a recognized undergraduate degree, diploma, or ITI course"
+          ],
+          "eligibility_ta": [
+            "தமிழ்நாட்டில் வசிக்கும் பெண் மாணவராக இருக்க வேண்டும்",
+            "மாநில அரசு/அரசு நிதி உதவி பெறும் பள்ளியில் 6 முதல் 12 ஆம் வகுப்பு வரை படித்திருக்க வேண்டும்",
+            "அங்கீகரிக்கப்பட்ட இளங்கலை, பட்டய படிப்பு அல்லது ஐடிஐ-யில் சேர்ந்திருக்க வேண்டும்"
+          ],
+          "link": "https://penkalvi.tn.gov.in/"
+        },
+        {
+          "id": "w1",
+          "name_en": "Kalaignar Magalir Urimai Thogai",
+          "name_ta": "கலைஞர் மகளிர் உரிமை தொகை",
+          "description_en": "Monthly financial assistance of ₹1000 to women heads of households to support their economic independence.",
+          "description_ta": "குடும்பத் தலைவியான பெண்களின் பொருளாதார சுதந்திரத்தை ஆதரிக்க மாதம் ₹1000 நிதி உதவி.",
+          "documents": [
+            "Aadhaar Card",
+            "Ration Card",
+            "Bank Account Details (linked to Aadhaar)",
+            "Income Certificate",
+            "Self-Declaration as Head of Household"
+          ],
+          "eligibility_en": [
+            "Women head of household",
+            "Age 18 years and above",
+            "Annual family income below ₹2.5 lakh",
+            "Must be a Tamil Nadu resident"
+          ],
+          "eligibility_ta": [
+            "குடும்பத் தலைவி பெண்",
+            "வயது 18 மற்றும் அதற்கு மேல்",
+            "ஆண்டு குடும்ப வருமானம் ₹2.5 லட்சத்திற்கும் கீழ்",
+            "தமிழ்நாடு குடியிருப்பாளராக இருக்க வேண்டும்"
+          ],
+          "link": "https://www.tn.gov.in"
+        },
+        {
+          "id": "w2",
+          "name_en": "Moovalur Ramamirtham Ammaiyar Scheme",
+          "name_ta": "மூவலூர் ராமாமிர்தம் அம்மையார் திட்டம்",
+          "description_en": "Monthly scholarship of ₹1000 for unmarried girls from poor families to support higher education and prevent child marriage.",
+          "description_ta": "குழந்தை திருமணத்தை தடுக்கவும் உயர்கல்வியை ஆதரிக்கவும் ஏழை குடும்பத்தைச் சேர்ந்த திருமணமாகாத பெண்களுக்கு மாதம் ₹1000 உதவித்தொகை.",
+          "documents": [
+            "Aadhaar Card",
+            "Income Certificate",
+            "School/College Enrollment Certificate",
+            "Unmarried Certificate"
+          ],
+          "eligibility_en": [
+            "Unmarried girls aged 16-21",
+            "Family income below ₹72,000/year",
+            "Studying in Class 11 or above"
+          ],
+          "eligibility_ta": [
+            "16-21 வயது திருமணமாகாத பெண்கள்",
+            "குடும்ப வருமானம் ஆண்டுக்கு ₹72,000-க்கும் கீழ்",
+            "11ம் வகுப்பு அல்லது அதற்கு மேல் படிக்க வேண்டும்"
+          ],
+          "link": "https://www.tn.gov.in"
+        },
+        {
+          "id": "w3",
+          "name_en": "Self Help Group Loan Scheme",
+          "name_ta": "சுயஉதவிக்குழு கடன் திட்டம்",
+          "description_en": "Low-interest collateral-free loans up to ₹10 lakh for women-led self-help groups to start or expand businesses.",
+          "description_ta": "தொழில்களை தொடங்க அல்லது விரிவாக்க பெண்கள் நடத்தும் சுய உதவி குழுக்களுக்கு ₹10 லட்சம் வரை குறைந்த வட்டியில் பிணை இல்லாத கடன்.",
+          "documents": [
+            "SHG Registration Certificate",
+            "TNCDW Membership Proof",
+            "Bank Account Details",
+            "Group Meeting Minutes (last 6 months)"
+          ],
+          "eligibility_en": [
+            "Women SHGs registered with TNCDW",
+            "SHG must be at least 6 months old",
+            "Members must have regular savings record"
+          ],
+          "eligibility_ta": [
+            "TNCDW-ல் பதிவு செய்யப்பட்ட பெண்கள் சுயஉதவிக்குழு",
+            "SHG குறைந்தது 6 மாதப் பழைமையானது",
+            "உறுப்பினர்களுக்கு வழக்கமான சேமிப்பு பதிவு இருக்க வேண்டும்"
+          ],
+          "link": "https://www.tnshe.in"
+        },
+        {
+          "id": "w4",
+          "name_en": "Free Sewing Machine Scheme",
+          "name_ta": "இலவச தையல் இயந்திர திட்டம்",
+          "description_en": "Free sewing machine for women to start self-employment as tailors and earn a livelihood.",
+          "description_ta": "தையல்காரர்களாக சுய தொழில் தொடங்கி வாழ்வாதாரம் சம்பாதிக்க பெண்களுக்கு இலவச தையல் இயந்திரம் வழங்கப்படும்.",
+          "documents": [
+            "Aadhaar Card",
+            "Ration Card",
+            "Income Certificate",
+            "Tailoring Training Certificate (if any)"
+          ],
+          "eligibility_en": [
+            "Women aged 18-50 years",
+            "Annual income below ₹1.2 lakh",
+            "Must not have received a sewing machine before"
+          ],
+          "eligibility_ta": [
+            "18 முதல் 50 வயதுடைய பெண்கள்",
+            "ஆண்டு வருமானம் ₹1.2 லட்சத்திற்கும் குறைவாக",
+            "முன்பு தையல் இயந்திரம் பெறாமல் இருக்க வேண்டும்"
+          ],
+          "link": "https://www.tn.gov.in"
+        },
+        {
+          "id": "w5",
+          "name_en": "Cradle Baby Scheme",
+          "name_ta": "தொட்டில் குழந்தை திட்டம்",
+          "description_en": "Safe care, adoption support, and welfare for unwanted girl children surrendered by families.",
+          "description_ta": "குடும்பங்கள் விட்டுச் செல்லும் பெண் குழந்தைகளுக்கு பாதுகாப்பான பராமரிப்பு, தத்தெடுப்பு ஆதரவு மற்றும் நலன்.",
+          "documents": [
+            "Parent/Guardian ID Proof",
+            "No documents required for surrender – confidential process"
+          ],
+          "eligibility_en": [
+            "Any family choosing to surrender a girl child voluntarily",
+            "Must be done at registered government centres",
+            "Completely confidential process"
+          ],
+          "eligibility_ta": [
+            "பெண் குழந்தையை தன்னார்வமாக விடும் எந்த குடும்பமும்",
+            "பதிவு செய்யப்பட்ட அரசு மையங்களில் நடைபெற வேண்டும்",
+            "முற்றிலும் ரகசியமான நடைமுறை"
+          ],
+          "link": "https://www.childlabour.tn.gov.in"
+        }
+      ]
+    },
+    {
+      "id": "farmers",
+      "name_en": "Farmers",
+      "name_ta": "விவசாயிகள்",
+      "icon": "🌾",
+      "isMain": true,
+      "schemes": [
+        {
+          "id": "f1",
+          "name_en": "PM Kisan Samman Nidhi",
+          "name_ta": "பிரதமர் கிசான் சம்மான் நிதி",
+          "description_en": "Direct income support of ₹6000 per year to small and marginal farmers in three equal instalments of ₹2000.",
+          "description_ta": "சிறு மற்றும் நடுத்தர விவசாயிகளுக்கு ஆண்டுக்கு ₹6000 நேரடி வருமான ஆதரவு ₹2000 மூன்று தவணைகளாக.",
+          "documents": [
+            "Aadhaar Card",
+            "Land Records (Patta/Chitta)",
+            "Bank Account Details (linked to Aadhaar)",
+            "Mobile Number"
+          ],
+          "eligibility_en": [
+            "Farmers with cultivable land up to 2 hectares",
+            "Valid Aadhaar card and bank account mandatory",
+            "Must be the land owner (not tenant)"
+          ],
+          "eligibility_ta": [
+            "2 ஹெக்டேர் வரை சாகுபடி நிலம் உள்ள விவசாயிகள்",
+            "ஆதார் மற்றும் வங்கி கணக்கு கட்டாயம்",
+            "நில உரிமையாளராக இருக்க வேண்டும் (குத்தகை விவசாயி அல்ல)"
+          ],
+          "link": "https://pmkisan.gov.in"
+        },
+        {
+          "id": "f2",
+          "name_en": "Crop Insurance Scheme (PMFBY)",
+          "name_ta": "பயிர் காப்பீட்டு திட்டம் (PMFBY)",
+          "description_en": "Financial support to farmers suffering crop loss or damage due to unforeseen events like natural calamities, pests and diseases.",
+          "description_ta": "இயற்கை பேரிடர்கள், பூச்சிகள் மற்றும் நோய்கள் போன்ற எதிர்பாராத நிகழ்வுகளால் பயிர் இழப்பு அல்லது சேதத்தால் பாதிக்கப்பட்ட விவசாயிகளுக்கு நிதி ஆதரவு.",
+          "documents": [
+            "Land Records",
+            "Aadhaar Card",
+            "Bank Account Details",
+            "Sowing Certificate from Village Officer"
+          ],
+          "eligibility_en": [
+            "All farmers (loanee and non-loanee)",
+            "Growing notified crops in notified areas",
+            "Must enroll before sowing season deadline"
+          ],
+          "eligibility_ta": [
+            "அனைத்து விவசாயிகளும் (கடன் பெற்றவர்கள் மற்றும் பெறாதவர்கள்)",
+            "அறிவிக்கப்பட்ட பகுதிகளில் அறிவிக்கப்பட்ட பயிர்களை பயிரிடுதல்",
+            "பயிர் நடவு காலக்கெடுவிற்கு முன் பதிவு செய்ய வேண்டும்"
+          ],
+          "link": "https://pmfby.gov.in"
+        },
+        {
+          "id": "f3",
+          "name_en": "Free Power Supply to Farmers",
+          "name_ta": "விவசாயிகளுக்கு இலவச மின்சார வழங்கல்",
+          "description_en": "Free electricity up to 100 units per month for agricultural pumpsets to support irrigation.",
+          "description_ta": "நீர்ப்பாசனத்தை ஆதரிக்க விவசாய மின் மோட்டார்களுக்கு மாதம் 100 யூனிட் வரை இலவச மின்சாரம்.",
+          "documents": [
+            "Service Connection Number",
+            "Patta/Land Record",
+            "Aadhaar Card"
+          ],
+          "eligibility_en": [
+            "Farmers with registered agricultural pumpsets in Tamil Nadu",
+            "Pumpset must be used for agriculture purpose only"
+          ],
+          "eligibility_ta": [
+            "தமிழ்நாட்டில் பதிவு செய்யப்பட்ட விவசாய மின்மோட்டார் உள்ள விவசாயிகள்",
+            "மின்மோட்டார் விவசாய நோக்கத்திற்காக மட்டுமே பயன்படுத்தப்படுதல்"
+          ],
+          "link": "https://www.tangedco.gov.in"
+        },
+        {
+          "id": "f4",
+          "name_en": "Farmer Loan Waiver Scheme",
+          "name_ta": "விவசாயி கடன் தள்ளுபடி திட்டம்",
+          "description_en": "Waiver of agricultural crop loans up to ₹1 lakh for eligible small and marginal farmers from cooperative banks.",
+          "description_ta": "கூட்டுறவு வங்கிகளில் தகுதியான சிறு மற்றும் நடுத்தர விவசாயிகளுக்கு ₹1 லட்சம் வரை விவசாயக் பயிர் கடன் தள்ளுபடி.",
+          "documents": [
+            "Loan Account Statement",
+            "Land Records",
+            "Aadhaar Card",
+            "Ration Card"
+          ],
+          "eligibility_en": [
+            "Small and marginal farmers (land up to 2 hectares)",
+            "Crop loans from cooperative or nationalised banks",
+            "Loans taken before specified date"
+          ],
+          "eligibility_ta": [
+            "சிறு மற்றும் நடுத்தர விவசாயிகள் (2 ஹெக்டேர் வரை நிலம்)",
+            "கூட்டுறவு அல்லது தேசியமயமாக்கப்பட்ட வங்கிகளிலிருந்து பயிர் கடன்கள்",
+            "குறிப்பிட்ட தேதிக்கு முன் வாங்கிய கடன்கள்"
+          ],
+          "link": "https://www.tn.gov.in"
+        },
+        {
+          "id": "f5",
+          "name_en": "Subsidy on Agricultural Equipment",
+          "name_ta": "வேளாண் கருவிகளுக்கு மானியம்",
+          "description_en": "50% subsidy (up to ₹1 lakh) on purchase of modern farming equipment like tractors, harvesters, and drip irrigation systems.",
+          "description_ta": "டிராக்டர், அறுவடை இயந்திரம் மற்றும் சொட்டு நீர் பாசன அமைப்புகள் போன்ற நவீன விவசாய கருவிகள் வாங்குவதற்கு 50% மானியம் (₹1 லட்சம் வரை).",
+          "documents": [
+            "Aadhaar Card",
+            "Land Records",
+            "Agriculture Department Registration",
+            "Bank Details",
+            "Quotation from Dealer"
+          ],
+          "eligibility_en": [
+            "Farmers registered with Agriculture Department",
+            "Must own valid agricultural land",
+            "Priority to SC/ST and women farmers"
+          ],
+          "eligibility_ta": [
+            "வேளாண்மை துறையில் பதிவு செய்யப்பட்ட விவசாயிகள்",
+            "சரியான விவசாய நிலம் உடையவராக இருக்க வேண்டும்",
+            "எஸ்சி/எஸ்டி மற்றும் பெண் விவசாயிகளுக்கு முன்னுரிமை"
+          ],
+          "link": "https://www.agri.tn.gov.in"
+        }
+      ]
+    },
+    {
+      "id": "employment",
+      "name_en": "Employment",
+      "name_ta": "வேலைவாய்ப்பு",
+      "icon": "💼",
+      "isMain": true,
+      "schemes": [
+        {
+          "id": "em1",
+          "name_en": "Chief Minister's Unemployed Youth Employment Generation Programme (CMUYEGP)",
+          "name_ta": "முதலமைச்சர் வேலையில்லா இளைஞர் வேலைவாய்ப்பு திட்டம்",
+          "description_en": "Financial assistance up to ₹5 lakh to unemployed youth to start their own enterprises.",
+          "description_ta": "வேலையில்லா இளைஞர்களுக்கு சொந்த நிறுவனங்களை தொடங்க ₹5 லட்சம் வரை நிதி உதவி.",
+          "documents": [
+            "Aadhaar Card",
+            "Educational Certificates",
+            "Residence Certificate",
+            "Bank Account Details",
+            "Project Report"
+          ],
+          "eligibility_en": [
+            "Age 18-35 years (45 for SC/ST/differently-abled)",
+            "Tamil Nadu resident",
+            "Unemployed at time of application",
+            "Educational qualification: Class 8 minimum"
+          ],
+          "eligibility_ta": [
+            "வயது 18-35 (எஸ்சி/எஸ்டி/மாற்றுத்திறனாளிக்கு 45)",
+            "தமிழ்நாடு குடியிருப்பாளர்",
+            "விண்ணப்பிக்கும் நேரத்தில் வேலையில்லாதவராக இருக்க வேண்டும்",
+            "கல்வி தகுதி: குறைந்தபட்சம் 8ம் வகுப்பு"
+          ],
+          "link": "https://www.msmeonline.tn.gov.in"
+        },
+        {
+          "id": "em2",
+          "name_en": "New Entrepreneur cum Enterprise Development (NEED)",
+          "name_ta": "புதிய தொழில்முனைவோர் திட்டம் (NEED)",
+          "description_en": "Free 15-day entrepreneurship training and financial support up to ₹10 lakh for new entrepreneurs.",
+          "description_ta": "புதிய தொழில்முனைவோர்களுக்கு இலவச 15-நாள் தொழில்முனைவு பயிற்சி மற்றும் ₹10 லட்சம் வரை நிதி ஆதரவு.",
+          "documents": [
+            "Aadhaar Card",
+            "Educational Certificate",
+            "Residence Proof",
+            "Caste Certificate (if applicable)",
+            "Bank Account Details"
+          ],
+          "eligibility_en": [
+            "Age 18-35 years",
+            "Minimum Class 8 pass",
+            "Tamil Nadu resident",
+            "No existing business"
+          ],
+          "eligibility_ta": [
+            "வயது 18-35",
+            "குறைந்தபட்சம் 8ம் வகுப்பு தேர்ச்சி",
+            "தமிழ்நாடு குடியிருப்பாளர்",
+            "தற்போது தொழில் இல்லாமல் இருக்க வேண்டும்"
+          ],
+          "link": "https://www.msmeonline.tn.gov.in"
+        },
+        {
+          "id": "em3",
+          "name_en": "TNSDC Skill Training Scheme",
+          "name_ta": "TNSDC திறன் பயிற்சி திட்டம்",
+          "description_en": "Free vocational skill training in 100+ trades to improve employability of youth and placement assistance.",
+          "description_ta": "இளைஞர்களின் வேலைவாய்ப்பை மேம்படுத்த 100+ தொழில்களில் இலவச தொழிற்கல்வி பயிற்சி மற்றும் நியமன உதவி.",
+          "documents": [
+            "Aadhaar Card",
+            "Educational Certificates",
+            "Passport Size Photos",
+            "Bank Account Details"
+          ],
+          "eligibility_en": [
+            "Age 15-45 years",
+            "Tamil Nadu resident",
+            "Minimum Class 5 pass for basic courses",
+            "Free for all; priority to SC/ST and women"
+          ],
+          "eligibility_ta": [
+            "வயது 15-45",
+            "தமிழ்நாடு குடியிருப்பாளர்",
+            "அடிப்படை படிப்புகளுக்கு குறைந்தபட்சம் 5ம் வகுப்பு",
+            "அனைவருக்கும் இலவசம்; எஸ்சி/எஸ்டி மற்றும் பெண்களுக்கு முன்னுரிமை"
+          ],
+          "link": "https://www.tnskill.tn.gov.in"
+        },
+        {
+          "id": "em4",
+          "name_en": "Employment Exchange Registration",
+          "name_ta": "வேலைவாய்ப்பு பதிவகத்தில் பதிவு",
+          "description_en": "Free registration at Employment Exchange for job seekers to get notified about government and private sector job opportunities.",
+          "description_ta": "அரசு மற்றும் தனியார் துறை வேலை வாய்ப்புகள் பற்றி அறிவிப்பு பெற வேலை தேடுபவர்களுக்கு வேலைவாய்ப்பு பதிவகத்தில் இலவச பதிவு.",
+          "documents": [
+            "Aadhaar Card",
+            "Educational Certificates",
+            "Passport Size Photos",
+            "Community Certificate"
+          ],
+          "eligibility_en": [
+            "Age 14 years and above",
+            "Tamil Nadu resident",
+            "Unemployed or seeking better employment",
+            "Education: Any qualification"
+          ],
+          "eligibility_ta": [
+            "வயது 14 மற்றும் அதற்கு மேல்",
+            "தமிழ்நாடு குடியிருப்பாளர்",
+            "வேலையில்லாதவர் அல்லது சிறந்த வேலை தேடுபவர்",
+            "கல்வி: எந்த தகுதியும்"
+          ],
+          "link": "https://www.tnvelaivaaippu.gov.in"
+        }
+      ]
+    },
+    {
+      "id": "housing",
+      "name_en": "Housing",
+      "name_ta": "வீட்டுவசதி",
+      "icon": "🏠",
+      "isMain": true,
+      "schemes": [
+        {
+          "id": "ho1",
+          "name_en": "Pradhan Mantri Awas Yojana – Gramin (PMAY-G)",
+          "name_ta": "பிரதமர் ஆவாஸ் யோஜனா – கிராமின் (PMAY-G)",
+          "description_en": "Financial assistance of ₹1.2 lakh for rural homeless families to construct a pucca house with basic amenities.",
+          "description_ta": "கிராமப்புற வீடற்ற குடும்பங்களுக்கு அடிப்படை வசதிகளுடன் நிரந்தர வீடு கட்ட ₹1.2 லட்சம் நிதி உதவி.",
+          "documents": [
+            "Aadhaar Card",
+            "Ration Card",
+            "BPL Certificate",
+            "Land Documents / Patta",
+            "Bank Account Details",
+            "No Objection Certificate"
+          ],
+          "eligibility_en": [
+            "BPL families in rural areas",
+            "Must not own a pucca house",
+            "Priority to SC/ST, minorities, and differently-abled",
+            "Must be on SECC 2011 list"
+          ],
+          "eligibility_ta": [
+            "கிராமப்புறங்களில் BPL குடும்பங்கள்",
+            "நிரந்தர வீடு இல்லாமல் இருக்க வேண்டும்",
+            "எஸ்சி/எஸ்டி, சிறுபான்மையினர் மற்றும் மாற்றுத்திறனாளிகளுக்கு முன்னுரிமை",
+            "SECC 2011 பட்டியலில் இருக்க வேண்டும்"
+          ],
+          "link": "https://pmayg.nic.in"
+        },
+        {
+          "id": "ho2",
+          "name_en": "Tamil Nadu Slum Clearance Board Housing Scheme",
+          "name_ta": "தமிழ்நாடு குடிசை மாற்று வாரிய வீட்டு திட்டம்",
+          "description_en": "Affordable housing flats for slum dwellers and economically weaker sections in urban areas.",
+          "description_ta": "நகர்ப்புறங்களில் குடிசை வாசிகள் மற்றும் பொருளாதார ரீதியாக பலவீனமான பிரிவினருக்கு மலிவு விலையில் வீட்டு குளியல்.",
+          "documents": [
+            "Aadhaar Card",
+            "Ration Card",
+            "Income Certificate",
+            "Current Residence Proof",
+            "Community Certificate"
+          ],
+          "eligibility_en": [
+            "Slum dwellers in Tamil Nadu cities",
+            "Annual family income below ₹3 lakh",
+            "Must not own a house in the city",
+            "Priority to women-headed families"
+          ],
+          "eligibility_ta": [
+            "தமிழ்நாடு நகரங்களில் குடிசை வாசிகள்",
+            "ஆண்டு குடும்ப வருமானம் ₹3 லட்சத்திற்கும் கீழ்",
+            "நகரில் வீடு இல்லாமல் இருக்க வேண்டும்",
+            "பெண் தலைவர் குடும்பங்களுக்கு முன்னுரிமை"
+          ],
+          "link": "https://www.tnscboard.tn.gov.in"
+        },
+        {
+          "id": "ho3",
+          "name_en": "Adi Dravidar Housing Scheme",
+          "name_ta": "ஆதி திராவிடர் வீட்டு திட்டம்",
+          "description_en": "Free housing units for SC/ST families who are landless and homeless in Tamil Nadu.",
+          "description_ta": "தமிழ்நாட்டில் நிலமில்லாத மற்றும் வீடற்ற எஸ்சி/எஸ்டி குடும்பங்களுக்கு இலவச வீட்டு அலகுகள்.",
+          "documents": [
+            "Caste Certificate (SC/ST)",
+            "Income Certificate",
+            "Aadhaar Card",
+            "Ration Card",
+            "No Land Certificate from Revenue Department"
+          ],
+          "eligibility_en": [
+            "SC/ST families without own house or land",
+            "Annual income below ₹1 lakh",
+            "Tamil Nadu resident for at least 5 years"
+          ],
+          "eligibility_ta": [
+            "சொந்த வீடு அல்லது நிலம் இல்லாத எஸ்சி/எஸ்டி குடும்பங்கள்",
+            "ஆண்டு வருமானம் ₹1 லட்சத்திற்கும் கீழ்",
+            "குறைந்தது 5 ஆண்டுகளாக தமிழ்நாடு குடியிருப்பாளர்"
+          ],
+          "link": "https://www.adi-dravidar.tn.gov.in"
+        }
+      ]
+    },
+    {
+      "id": "pension",
+      "name_en": "Pension",
+      "name_ta": "ஓய்வூதியம்",
+      "icon": "👴",
+      "isMain": true,
+      "schemes": [
+        {
+          "id": "p1",
+          "name_en": "Indira Gandhi National Old Age Pension (IGNOAPS)",
+          "name_ta": "இந்திரா காந்தி தேசிய வயோதிக ஓய்வூதியம்",
+          "description_en": "Monthly pension of ₹1000 (state + central combined) for senior citizens aged 60 and above from BPL families.",
+          "description_ta": "BPL குடும்பங்களில் 60 வயதுக்கு மேற்பட்ட முதியோர்களுக்கு மாதம் ₹1000 (மாநில + மத்திய ஒருங்கிணைந்த) ஓய்வூதியம்.",
+          "documents": [
+            "Aadhaar Card",
+            "Age Proof (Birth Certificate / School Certificate)",
+            "Ration Card",
+            "Bank Account Details",
+            "BPL Certificate"
+          ],
+          "eligibility_en": [
+            "Age 60 years and above",
+            "BPL (Below Poverty Line) family",
+            "Annual income below ₹75,000",
+            "Must not be receiving any other pension"
+          ],
+          "eligibility_ta": [
+            "வயது 60 மற்றும் அதற்கு மேல்",
+            "BPL (வறுமை கோட்டிற்கு கீழ்) குடும்பம்",
+            "ஆண்டு வருமானம் ₹75,000-க்கும் கீழ்",
+            "வேறு எந்த ஓய்வூதியமும் பெறாமல் இருக்க வேண்டும்"
+          ],
+          "link": "https://www.tn.gov.in"
+        },
+        {
+          "id": "p2",
+          "name_en": "Disability Pension Scheme",
+          "name_ta": "மாற்றுத்திறனாளி ஓய்வூதியம்",
+          "description_en": "Monthly pension of ₹1000 for persons with 40% or more physical, visual, hearing, or mental disability.",
+          "description_ta": "40% அல்லது அதிகமான உடல், பார்வை, கேட்கும் திறன் அல்லது மனநல இயலாமை உள்ள நபர்களுக்கு மாதம் ₹1000 ஓய்வூதியம்.",
+          "documents": [
+            "Disability Certificate (40%+ from govt hospital)",
+            "Aadhaar Card",
+            "Ration Card",
+            "Bank Account Details",
+            "Income Certificate"
+          ],
+          "eligibility_en": [
+            "40% or more disability as certified by government hospital",
+            "Annual income below ₹75,000",
+            "Must be a Tamil Nadu resident"
+          ],
+          "eligibility_ta": [
+            "அரசு மருத்துவமனை சான்றளிப்படி 40% அல்லது அதிகமான இயலாமை",
+            "ஆண்டு வருமானம் ₹75,000-க்கும் கீழ்",
+            "தமிழ்நாடு குடியிருப்பாளராக இருக்க வேண்டும்"
+          ],
+          "link": "https://www.tnsocialwelfare.tn.gov.in"
+        },
+        {
+          "id": "p3",
+          "name_en": "Widow Pension Scheme",
+          "name_ta": "விதவை ஓய்வூதியம்",
+          "description_en": "Monthly pension of ₹1000 for widows to support their livelihood after losing their spouse.",
+          "description_ta": "கணவனை இழந்த பிறகு வாழ்வாதாரத்தை ஆதரிக்க விதவைகளுக்கு மாதம் ₹1000 ஓய்வூதியம்.",
+          "documents": [
+            "Aadhaar Card",
+            "Husband's Death Certificate",
+            "Ration Card",
+            "Bank Account Details",
+            "Income Certificate"
+          ],
+          "eligibility_en": [
+            "Widow aged 18 years and above",
+            "Annual income below ₹75,000",
+            "Not remarried",
+            "Tamil Nadu resident"
+          ],
+          "eligibility_ta": [
+            "18 வயதுக்கு மேற்பட்ட விதவை",
+            "ஆண்டு வருமானம் ₹75,000-க்கும் கீழ்",
+            "மறுமணம் செய்யாமல் இருக்க வேண்டும்",
+            "தமிழ்நாடு குடியிருப்பாளர்"
+          ],
+          "link": "https://www.tn.gov.in"
+        },
+        {
+          "id": "p4",
+          "name_en": "Destitute Wives of Prisoners Pension",
+          "name_ta": "கைதிகளின் நிராதரவான மனைவிக்கு ஓய்வூதியம்",
+          "description_en": "Monthly pension of ₹1000 for wives of prisoners to support them during imprisonment.",
+          "description_ta": "சிறை தண்டனையின் போது ஆதரவளிக்க கைதிகளின் மனைவிகளுக்கு மாதம் ₹1000 ஓய்வூதியம்.",
+          "documents": [
+            "Aadhaar Card",
+            "Court Order / Imprisonment Certificate",
+            "Marriage Certificate",
+            "Ration Card",
+            "Bank Account Details"
+          ],
+          "eligibility_en": [
+            "Wife of a prisoner serving sentence",
+            "Annual family income below ₹75,000",
+            "Must not have any other income source"
+          ],
+          "eligibility_ta": [
+            "தண்டனை அனுபவிக்கும் கைதியின் மனைவி",
+            "ஆண்டு குடும்ப வருமானம் ₹75,000-க்கும் கீழ்",
+            "வேறு எந்த வருமான ஆதாரமும் இல்லாமல் இருக்க வேண்டும்"
+          ],
+          "link": "https://www.tn.gov.in"
+        }
+      ]
+    },
+    {
+      "id": "differently_abled",
+      "name_en": "Differently Abled",
+      "name_ta": "மாற்றுத்திறனாளிகள்",
+      "icon": "♿",
+      "isMain": false,
+      "schemes": [
+        {
+          "id": "d1",
+          "name_en": "Free Aids and Appliances",
+          "name_ta": "இலவச உதவிக்கருவிகள்",
+          "description_en": "Free assistive devices like wheelchairs, hearing aids, white canes, prosthetic limbs, and spectacles.",
+          "description_ta": "சக்கர நாற்காலி, காது கேட்கும் கருவி, வெள்ளைக் கோல், செயற்கை கை/கால், கண்ணாடி போன்ற இலவச உதவிக்கருவிகள்.",
+          "documents": [
+            "Disability Certificate from Government Hospital",
+            "Aadhaar Card",
+            "Ration Card",
+            "Doctor's Prescription"
+          ],
+          "eligibility_en": [
+            "Persons with disabilities holding valid disability certificate",
+            "Minimum 40% disability",
+            "Priority based on severity of disability"
+          ],
+          "eligibility_ta": [
+            "சரியான இயலாமை சான்றிதழ் வைத்திருக்கும் மாற்றுத்திறனாளிகள்",
+            "குறைந்தபட்சம் 40% இயலாமை",
+            "இயலாமையின் தீவிரத்தின் அடிப்படையில் முன்னுரிமை"
+          ],
+          "link": "https://www.tnsocialwelfare.tn.gov.in"
+        },
+        {
+          "id": "d2",
+          "name_en": "Scholarship for Differently Abled Students",
+          "name_ta": "மாற்றுத்திறனாளி மாணவர்களுக்கு உதவித்தொகை",
+          "description_en": "Monthly scholarship and book allowance for differently-abled students pursuing their education.",
+          "description_ta": "கல்வி பயிலும் மாற்றுத்திறனாளி மாணவர்களுக்கு மாதாந்திர உதவித்தொகை மற்றும் புத்தக படி.",
+          "documents": [
+            "Disability Certificate (40%+)",
+            "School/College Enrollment Proof",
+            "Aadhaar Card",
+            "Bank Account Details"
+          ],
+          "eligibility_en": [
+            "Students with 40%+ disability studying in recognized institutions",
+            "Annual family income below ₹2.5 lakh"
+          ],
+          "eligibility_ta": [
+            "அங்கீகரிக்கப்பட்ட நிறுவனங்களில் படிக்கும் 40%+ இயலாமை உள்ள மாணவர்கள்",
+            "ஆண்டு குடும்ப வருமானம் ₹2.5 லட்சத்திற்கும் கீழ்"
+          ],
+          "link": "https://www.tnsocialwelfare.tn.gov.in"
+        },
+        {
+          "id": "d3",
+          "name_en": "National Handicapped Finance Corporation Loan",
+          "name_ta": "தேசிய ஊனமுற்றோர் நிதி இணைய கடன்",
+          "description_en": "Low-interest loans up to ₹5 lakh for differently-abled persons to start self-employment ventures.",
+          "description_ta": "மாற்றுத்திறனாளிகள் சுய வேலைவாய்ப்பு தொடங்க குறைந்த வட்டியில் ₹5 லட்சம் வரை கடன்.",
+          "documents": [
+            "Disability Certificate",
+            "Aadhaar Card",
+            "Income Certificate",
+            "Project Report",
+            "Bank Account Details"
+          ],
+          "eligibility_en": [
+            "Persons with 40%+ disability",
+            "Age 18-55 years",
+            "Annual income below ₹3 lakh"
+          ],
+          "eligibility_ta": [
+            "40%+ இயலாமை உள்ளவர்கள்",
+            "வயது 18-55",
+            "ஆண்டு வருமானம் ₹3 லட்சத்திற்கும் கீழ்"
+          ],
+          "link": "https://www.nhfdc.nic.in"
+        }
+      ]
+    },
+    {
+      "id": "sc_st",
+      "name_en": "SC/ST Communities",
+      "name_ta": "எஸ்சி/எஸ்டி சமூகங்கள்",
+      "icon": "🤝",
+      "isMain": false,
+      "schemes": [
+        {
+          "id": "cst1",
+          "name_en": "Post Matric Scholarship for SC/ST",
+          "name_ta": "எஸ்சி/எஸ்டிக்கு மெட்ரிக்குலேஷன் பிந்தைய உதவித்தொகை",
+          "description_en": "Full scholarship covering tuition, hostel, and maintenance allowance for SC/ST students after Class 10.",
+          "description_ta": "10ம் வகுப்பிற்கு பிறகு எஸ்சி/எஸ்டி மாணவர்களுக்கு கல்விக் கட்டணம், விடுதி மற்றும் பராமரிப்பு படி உள்ளடக்கிய முழு உதவித்தொகை.",
+          "documents": [
+            "Caste Certificate (SC/ST)",
+            "Income Certificate (below ₹2.5 lakh)",
+            "Aadhaar Card",
+            "Previous Year Marksheet",
+            "Admission Proof"
+          ],
+          "eligibility_en": [
+            "SC/ST students in post-matric courses",
+            "Family income below ₹2.5 lakh/year",
+            "Must be studying full-time"
+          ],
+          "eligibility_ta": [
+            "மெட்ரிக்குலேஷன் பிந்தைய படிப்புகளில் எஸ்சி/எஸ்டி மாணவர்கள்",
+            "குடும்ப வருமானம் ஆண்டுக்கு ₹2.5 லட்சத்திற்கும் கீழ்",
+            "முழு நேரம் படிக்க வேண்டும்"
+          ],
+          "link": "https://www.adi-dravidar.tn.gov.in"
+        },
+        {
+          "id": "cst2",
+          "name_en": "Special Component Plan for SC Development",
+          "name_ta": "எஸ்சி மேம்பாட்டுக்கான சிறப்பு கூறு திட்டம்",
+          "description_en": "Special budget allocation for the overall development of Scheduled Caste communities including education, housing, and livelihoods.",
+          "description_ta": "கல்வி, வீட்டுவசதி மற்றும் வாழ்வாதாரம் உள்ளிட்ட தாழ்த்தப்பட்ட சமூகங்களின் ஒட்டுமொத்த வளர்ச்சிக்கு சிறப்பு பட்ஜெட் ஒதுக்கீடு.",
+          "documents": [
+            "Caste Certificate (SC)",
+            "Aadhaar Card",
+            "Ration Card",
+            "Income Certificate"
+          ],
+          "eligibility_en": [
+            "Scheduled Caste families in Tamil Nadu",
+            "Various sub-schemes with varying income criteria",
+            "Annual income criteria varies by sub-scheme"
+          ],
+          "eligibility_ta": [
+            "தமிழ்நாட்டில் தாழ்த்தப்பட்ட குடும்பங்கள்",
+            "மாறுபட்ட வருமான அளவுகோல்களுடன் பல்வேறு உப-திட்டங்கள்",
+            "ஆண்டு வருமான அளவுகோல் உப-திட்டத்தின்படி மாறுபடும்"
+          ],
+          "link": "https://www.adi-dravidar.tn.gov.in"
+        }
+      ]
+    }
+  ]
+}

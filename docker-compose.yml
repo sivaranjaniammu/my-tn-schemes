@@ -1,0 +1,98 @@
+# ============================================================
+#  TN Scheme Bot – Docker Compose (Production)
+#  Usage:
+#    docker compose up -d          # Start all services
+#    docker compose down -v        # Stop and remove volumes
+#    docker compose logs -f app    # Stream app logs
+# ============================================================
+
+services:
+
+  # ── MongoDB ──────────────────────────────────────────────
+  mongo:
+    image: mongo:7.0
+    container_name: tn_scheme_mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASS:-tnschemesecret}
+      MONGO_INITDB_DATABASE: tn-scheme-bot
+    volumes:
+      - mongo_data:/data/db
+      - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    ports:
+      - "${MONGO_PORT:-27017}:27017" # expose only if needed locally
+    networks:
+      - tn_network
+    healthcheck:
+      test: [ "CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok" ]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  # ── Seeder (one-shot job) ─────────────────────────────────
+  seeder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner # Use the runner stage (has data/ + scripts/)
+    container_name: tn_scheme_seeder
+    restart: "no" # Run once and exit
+    command: [ "node", "scripts/seedData.js" ]
+    environment:
+      NODE_ENV: production
+      MONGO_URI: mongodb://${MONGO_ROOT_USER:-admin}:${MONGO_ROOT_PASS:-tnschemesecret}@mongo:27017/tn-scheme-bot?authSource=admin
+      JWT_SECRET: ${JWT_SECRET:-tn_scheme_super_secret_jwt_key_2024}
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - tn_network
+
+  # ── App (Express + React) ─────────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    container_name: tn_scheme_app
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      MONGO_URI: mongodb://${MONGO_ROOT_USER:-admin}:${MONGO_ROOT_PASS:-tnschemesecret}@mongo:27017/tn-scheme-bot?authSource=admin
+      JWT_SECRET: ${JWT_SECRET:-tn_scheme_super_secret_jwt_key_2024}
+      SESSION_SECRET: ${SESSION_SECRET:-tn_scheme_session_secret_2024}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+    depends_on:
+      mongo:
+        condition: service_healthy
+      seeder:
+        condition: service_completed_successfully
+    networks:
+      - tn_network
+    healthcheck:
+      test: [ "CMD", "wget", "-qO-", "http://localhost:3000/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# ── Volumes ───────────────────────────────────────────────
+volumes:
+  mongo_data:
+    driver: local
+
+# ── Networks ──────────────────────────────────────────────
+networks:
+  tn_network:
+    driver: bridge

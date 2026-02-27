@@ -1,0 +1,43 @@
+# ============================================================
+#  .dockerignore – Exclude files from the Docker build context
+#  Keeps the image lean and build fast.
+# ============================================================
+
+# Node modules (installed fresh inside image)
+node_modules/
+client/node_modules/
+
+# Build artifacts (React app built inside image by Stage 1)
+public/
+client/dist/
+
+# Git
+.git/
+.gitignore
+
+# Environment files (injected at runtime, never bake into image)
+.env
+.env.*
+
+# Docker files themselves
+Dockerfile*
+docker-compose*.yml
+docker/
+
+# Logs
+*.log
+logs/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Test files
+**/__tests__/
+**/*.test.js
+**/*.spec.js
+
+# README (not needed in image)
+README.md

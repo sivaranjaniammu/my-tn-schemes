@@ -1,0 +1,55 @@
+# ============================================================
+#  TN Scheme Bot – Docker Compose Override (Development)
+#  Usage:  docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+#
+#  This file adds the Vite dev server as a fourth service so you
+#  can get hot-module-reload while the backend runs in a container.
+# ============================================================
+
+services:
+
+  # ── MongoDB (dev: allow connections from host) ────────────
+  mongo:
+    ports:
+      - "27017:27017" # Always expose in dev so Compass / mongosh can connect
+
+  # ── App (dev: mount source so you don't need to rebuild) ──
+  app:
+    build:
+      target: runner
+    volumes:
+      # Mount server source files live (no rebuild needed for server changes)
+      - ./server.js:/app/server.js:ro
+      - ./routes:/app/routes:ro
+      - ./models:/app/models:ro
+      - ./middleware:/app/middleware:ro
+      - ./data:/app/data:ro
+      # Mount seeder but not node_modules (let image's node_modules win)
+      - ./scripts:/app/scripts:ro
+    command: [ "node", "--watch", "server.js" ] # nodemon-style with built-in --watch
+    environment:
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+
+  # ── Vite Dev Server (React HMR) ───────────────────────────
+  client:
+    image: node:20-alpine
+    container_name: tn_scheme_client
+    working_dir: /client
+    volumes:
+      - ./client:/client
+      - client_nm:/client/node_modules # Named volume keeps node_modules inside container
+    environment:
+      - NODE_ENV=development
+      - VITE_API_BASE=http://localhost:3000
+    ports:
+      - "5173:5173"
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    depends_on:
+      - app
+    networks:
+      - tn_network
+
+volumes:
+  client_nm: # Isolated node_modules for the client container
