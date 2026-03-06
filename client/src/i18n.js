@@ -83,7 +83,13 @@ const resources = {
             "chip_education": "🎓 Education",
             "chip_health": "🏥 Health",
             "chip_farmers": "🌾 Farmers",
-            "chip_pension": "👴 Pension"
+            "chip_pension": "👴 Pension",
+
+            // Voice
+            "voice_listening": "Listening...",
+            "voice_speak": "Speak response",
+            "voice_input_idle": "Click to speak",
+            "voice_unsupported": "Speech recognition not supported in this browser."
         }
     },
     ta: {
@@ -166,7 +172,13 @@ const resources = {
             "chip_education": "🎓 கல்வி",
             "chip_health": "🏥 சுகாதாரம்",
             "chip_farmers": "🌾 விவசாயிகள்",
-            "chip_pension": "👴 ஓய்வூதியம்"
+            "chip_pension": "👴 ஓய்வூதியம்",
+
+            // Voice
+            "voice_listening": "கவனித்துக் கொண்டிருக்கிறேன்...",
+            "voice_speak": "பதிலை ஒலிக்கச் செய்",
+            "voice_input_idle": "பேச கிளிக் செய்யவும்",
+            "voice_unsupported": "உங்கள் உலாவியில் குரல் அங்கீகாரம் ஆதரிக்கப்படவில்லை."
         }
     }
 };

@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
 import { useAuth } from '../context/AuthContext';
 import LanguageToggle from '../components/LanguageToggle';
+import DocumentWallet from '../components/DocumentWallet';
+import { Mic, MicOff, Volume2, Square } from 'lucide-react';
+import '../wallet.css';
 
 const API = '/api/schemes';
 
@@ -62,7 +66,10 @@ function SchemeCard({ scheme, lang, t }) {
                 </button>
             </div>
 
-            {activePanel === 'docs' && (
+            <div
+                className={`accordion-container ${activePanel === 'docs' ? 'expanded' : 'collapsed'}`}
+                aria-hidden={activePanel !== 'docs'}
+            >
                 <div className="scheme-panel docs-panel">
                     <h5 className="scheme-panel-title">📄 {t('required_docs')}</h5>
                     <ul className="scheme-panel-list">
@@ -74,9 +81,12 @@ function SchemeCard({ scheme, lang, t }) {
                         ))}
                     </ul>
                 </div>
-            )}
+            </div>
 
-            {activePanel === 'elig' && (
+            <div
+                className={`accordion-container ${activePanel === 'elig' ? 'expanded' : 'collapsed'}`}
+                aria-hidden={activePanel !== 'elig'}
+            >
                 <div className="scheme-panel elig-panel">
                     <h5 className="scheme-panel-title">✅ {t('eligibility')}</h5>
                     <ul className="scheme-panel-list">
@@ -88,7 +98,7 @@ function SchemeCard({ scheme, lang, t }) {
                         ))}
                     </ul>
                 </div>
-            )}
+            </div>
         </div>
     );
 }
@@ -98,6 +108,14 @@ function ChatMessage({ msg, lang, t, categories, onCategorySelect }) {
     const mainCats = (categories || []).filter(c => c.isMain);
     const otherCats = (categories || []).filter(c => !c.isMain);
 
+    const speak = (text) => {
+        if (!window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = lang === 'ta' ? 'ta-IN' : 'en-IN';
+        window.speechSynthesis.speak(utterance);
+    };
+
     return (
         <div className={`chat-msg-row ${msg.type === 'user' ? 'chat-user' : 'chat-bot'}`}>
             <div className={`chat-avatar ${msg.type}`}>
@@ -106,7 +124,18 @@ function ChatMessage({ msg, lang, t, categories, onCategorySelect }) {
             <div className="chat-bubble-wrapper">
                 {msg.text && (
                     <div className={`chat-bubble ${msg.type}`}>
-                        {msg.text}
+                        {msg.type === 'bot' ? (
+                            <div className="bot-msg-content">
+                                <ReactMarkdown>{msg.text}</ReactMarkdown>
+                                <button
+                                    className="speak-btn"
+                                    onClick={() => speak(msg.text)}
+                                    title={t('voice_speak')}
+                                >
+                                    <Volume2 size={16} />
+                                </button>
+                            </div>
+                        ) : msg.text}
                     </div>
                 )}
 
@@ -172,6 +201,9 @@ export default function Dashboard() {
     const [searchQuery, setSearchQuery] = useState('');
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [view, setView] = useState('chat'); // 'chat' | 'schemes'
+    const [isListening, setIsListening] = useState(false);
+
+    const recognitionRef = useRef(null);
 
     const messagesEndRef = useRef(null);
     const inputRef = useRef(null);
@@ -206,6 +238,59 @@ export default function Dashboard() {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages, schemes]);
 
+    // Initialize Speech Recognition
+    useEffect(() => {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (SpeechRecognition) {
+            recognitionRef.current = new SpeechRecognition();
+            recognitionRef.current.continuous = false;
+            recognitionRef.current.interimResults = false;
+
+            recognitionRef.current.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                setInput(transcript);
+                setIsListening(false);
+            };
+
+            recognitionRef.current.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                setIsListening(false);
+            };
+
+            recognitionRef.current.onend = () => {
+                setIsListening(false);
+            };
+        }
+    }, []);
+
+    // Sync Speech Recognition language with current app language
+    useEffect(() => {
+        if (recognitionRef.current) {
+            recognitionRef.current.lang = lang === 'ta' ? 'ta-IN' : 'en-IN';
+        }
+    }, [lang]);
+
+    const toggleListening = () => {
+        if (isListening) {
+            recognitionRef.current?.stop();
+            setIsListening(false);
+        } else {
+            if (!recognitionRef.current) {
+                alert(t('voice_unsupported'));
+                return;
+            }
+            // Language is already synced in useEffect, but we can set it here too for safety
+            recognitionRef.current.lang = lang === 'ta' ? 'ta-IN' : 'en-IN';
+            try {
+                recognitionRef.current.start();
+                setIsListening(true);
+            } catch (err) {
+                console.error('Failed to start recognition:', err);
+                setIsListening(false);
+            }
+        }
+    };
+
     const addBotMessage = (text, extra = {}) => {
         setMessages(prev => [...prev, { type: 'bot', text, ...extra }]);
     };
@@ -221,34 +306,28 @@ export default function Dashboard() {
 
         addUserMessage(msg);
         setInput('');
+        setIsTyping(true);
 
-        const greetings = ['hi', 'hello', 'வணக்கம்', 'hai', 'hey', 'start', 'தொடங்கு'];
-        if (greetings.includes(msg.toLowerCase())) {
-            setIsTyping(true);
-            setTimeout(() => {
-                setIsTyping(false);
-                addBotMessage(t('select_category'), { showCategories: true });
-            }, 800);
-        } else {
-            // Search
-            setIsTyping(true);
-            try {
-                const res = await axios.get(`${API}/search?q=${encodeURIComponent(msg)}`, {
-                    headers: { Authorization: `Bearer ${token}` }
-                });
-                setIsTyping(false);
-                if (res.data.length > 0) {
-                    addBotMessage(
-                        `${t('found_results')} "${msg}":`,
-                        { schemes: res.data }
-                    );
-                } else {
-                    addBotMessage(t('no_results'));
-                }
-            } catch {
-                setIsTyping(false);
-                addBotMessage(t('search_error'));
-            }
+        try {
+            const res = await axios.post(`/api/chat/message`, {
+                message: msg,
+                lang: lang
+            }, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+
+            setIsTyping(false);
+
+            // The API handles both Greetings and Search
+            addBotMessage(res.data.text, {
+                showCategories: res.data.showCategories || false,
+                schemes: res.data.schemes || []
+            });
+
+        } catch (err) {
+            setIsTyping(false);
+            addBotMessage(t('search_error'));
+            console.error("AI API Error:", err);
         }
     };
 
@@ -277,6 +356,13 @@ export default function Dashboard() {
         setView('chat');
         setSelectedCategory(null);
         setSchemes([]);
+    };
+
+    const handleWalletSelect = () => {
+        setView('wallet');
+        setSelectedCategory(null);
+        setSchemes([]);
+        setSidebarOpen(false);
     };
 
     const filteredSchemes = schemes.filter(s => {
@@ -317,6 +403,15 @@ export default function Dashboard() {
                 </div>
 
                 <nav className="sidebar-nav">
+                    <p className="sidebar-nav-label">{t('others')}</p>
+                    <button
+                        className={`sidebar-nav-item ${view === 'wallet' ? 'active' : ''}`}
+                        onClick={handleWalletSelect}
+                    >
+                        <span className="sidebar-nav-icon">🗂️</span>
+                        <span>{lang === 'ta' ? 'ஆவணங்கள்' : 'Document Wallet'}</span>
+                    </button>
+
                     <p className="sidebar-nav-label">{t('categories')}</p>
                     {categories.filter(c => c.isMain).map(cat => (
                         <button
@@ -380,7 +475,9 @@ export default function Dashboard() {
                             <h2 className="header-title">
                                 {view === 'schemes' && selectedCategory
                                     ? `${selectedCategory.icon} ${selectedCategory[`name_${lang}`]}`
-                                    : `🤖 ${t('chatbot_title')}`}
+                                    : view === 'wallet'
+                                        ? `🗂️ ${lang === 'ta' ? 'ஆவணங்கள்' : 'Document Wallet'}`
+                                        : `🤖 ${t('chatbot_title')}`}
                             </h2>
                             {view === 'schemes' && selectedCategory && (
                                 <p className="header-subtitle">
@@ -443,12 +540,20 @@ export default function Dashboard() {
                         {/* Input */}
                         <div className="chat-input-area">
                             <form onSubmit={handleSend} className="chat-input-form">
+                                <button
+                                    type="button"
+                                    className={`voice-btn ${isListening ? 'listening' : ''}`}
+                                    onClick={toggleListening}
+                                    title={isListening ? t('voice_listening') : t('voice_input_idle')}
+                                >
+                                    {isListening ? <Square size={18} fill="currentColor" /> : <Mic size={20} />}
+                                </button>
                                 <input
                                     ref={inputRef}
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
-                                    placeholder={t('search_placeholder')}
+                                    placeholder={isListening ? t('voice_listening') : t('search_placeholder')}
                                     className="chat-input"
                                     autoComplete="off"
                                 />
@@ -498,6 +603,18 @@ export default function Dashboard() {
                                 )}
                             </div>
                         )}
+                    </div>
+                )}
+
+                {/* ── Wallet View ─────────────────────────────────────── */}
+                {view === 'wallet' && (
+                    <div className="schemes-area">
+                        <div className="schemes-toolbar">
+                            <button className="back-btn" onClick={handleBack}>
+                                ← {t('back')}
+                            </button>
+                        </div>
+                        <DocumentWallet t={t} lang={lang} />
                     </div>
                 )}
             </div>

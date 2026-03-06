@@ -16,6 +16,8 @@ const mongoose = require("mongoose");
 const User = require("./models/User");
 const authRoutes = require("./routes/auth");
 const schemeRoutes = require("./routes/schemes");
+const chatRoutes = require("./routes/chat");
+const documentRoutes = require("./routes/document");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -151,6 +153,9 @@ app.use(express.static(path.join(__dirname, "public")));
 // ── API Routes ────────────────────────────────────────────────────────────
 app.use("/api/auth", authRoutes);
 app.use("/api/schemes", schemeRoutes);
+app.use("/api/chat", chatRoutes);
+app.use("/api/documents", documentRoutes);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // ── Health check ──────────────────────────────────────────────────────────
 app.get("/health", (req, res) => {

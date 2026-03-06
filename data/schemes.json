@@ -851,7 +851,7 @@
       "name_en": "Differently Abled",
       "name_ta": "மாற்றுத்திறனாளிகள்",
       "icon": "♿",
-      "isMain": false,
+      "isMain": true,
       "schemes": [
         {
           "id": "d1",
@@ -931,7 +931,7 @@
       "name_en": "SC/ST Communities",
       "name_ta": "எஸ்சி/எஸ்டி சமூகங்கள்",
       "icon": "🤝",
-      "isMain": false,
+      "isMain": true,
       "schemes": [
         {
           "id": "cst1",
@@ -981,6 +981,114 @@
             "ஆண்டு வருமான அளவுகோல் உப-திட்டத்தின்படி மாறுபடும்"
           ],
           "link": "https://www.adi-dravidar.tn.gov.in"
+        }
+      ]
+    },
+    {
+      "id": "handloom",
+      "name_en": "Handloom",
+      "name_ta": "கைத்தறி",
+      "icon": "🧵",
+      "isMain": true,
+      "schemes": [
+        {
+          "id": "hl1",
+          "name_en": "Free Electricity to Handloom Weavers",
+          "name_ta": "கைத்தறி நெசவாளர்களுக்கு இலவச மின்சாரம்",
+          "description_en": "Provides 200 units of free electricity bi-monthly to handloom weavers.",
+          "description_ta": "கைத்தறி நெசவாளர்களுக்கு இரண்டு மாதங்களுக்கு ஒருமுறை 200 யூனிட் இலவச மின்சாரம் வழங்குகிறது.",
+          "documents": [
+            "Aadhaar Card",
+            "Weaver ID Card",
+            "Electricity Bill",
+            "Ration Card"
+          ],
+          "eligibility_en": [
+            "Must be a registered handloom weaver in Tamil Nadu",
+            "Must have a domestic electricity connection"
+          ],
+          "eligibility_ta": [
+            "தமிழ்நாட்டில் பதிவு செய்யப்பட்ட கைத்தறி நெசவாளராக இருக்க வேண்டும்",
+            "வீட்டு மின் இணைப்பு இருக்க வேண்டும்"
+          ],
+          "link": "https://www.tangedco.gov.in"
+        },
+        {
+          "id": "hl2",
+          "name_en": "Co-operative Handloom Weavers Savings and Security Scheme",
+          "name_ta": "கூட்டுறவு கைத்தறி நெசவாளர் சேமிப்பு மற்றும் பாதுகாப்பு திட்டம்",
+          "description_en": "A savings-cum-insurance scheme to ensure financial security and welfare of co-operative handloom weavers.",
+          "description_ta": "கூட்டுறவு கைத்தறி நெசவாளர்களின் நிதி பாதுகாப்பு மற்றும் நலனை உறுதி செய்வதற்கான சேமிப்பு மற்றும் காப்பீட்டுத் திட்டம்.",
+          "documents": [
+            "Aadhaar Card",
+            "Co-operative Society Membership Card",
+            "Bank Account Details",
+            "Nominee Details"
+          ],
+          "eligibility_en": [
+            "Must be a member of a Handloom Weavers Co-operative Society",
+            "Age between 18 and 60 years"
+          ],
+          "eligibility_ta": [
+            "கைத்தறி நெசவாளர் கூட்டுறவுச் சங்கத்தின் உறுப்பினராக இருக்க வேண்டும்",
+            "வயது 18 முதல் 60 வரை"
+          ],
+          "link": "https://www.tn.gov.in/handlooms"
+        }
+      ]
+    },
+    {
+      "id": "rural",
+      "name_en": "Rural Development",
+      "name_ta": "ஊரக வளர்ச்சி",
+      "icon": "🏡",
+      "isMain": true,
+      "schemes": [
+        {
+          "id": "rd1",
+          "name_en": "Pudhu Vaazhvu Project (TNRTP)",
+          "name_ta": "புது வாழ்வு திட்டம் (TNRTP)",
+          "description_en": "Tamil Nadu Rural Transformation Project focuses on empowering rural communities and creating sustainable livelihood opportunities.",
+          "description_ta": "தமிழ்நாடு ஊரக வாழ்வாதாரத் திட்டம் கிராமப்புற சமூகங்களை மேம்படுத்துவதிலும், நிலையான வாழ்வாதார வாய்ப்புகளை உருவாக்குவதிலும் கவனம் செலுத்துகிறது.",
+          "documents": [
+            "Aadhaar Card",
+            "Ration Card",
+            "Community Certificate",
+            "Project Proposal (if applying for enterprise fund)"
+          ],
+          "eligibility_en": [
+            "Rural poor, vulnerable, and marginalized communities",
+            "Members of Self Help Groups (SHGs)"
+          ],
+          "eligibility_ta": [
+            "கிராமப்புற ஏழைகள் மற்றும் ஒடுக்கப்பட்ட சமூகங்கள்",
+            "சுயஉதவிக்குழு உறுப்பினர்கள்"
+          ],
+          "link": "https://www.tnrtp.org"
+        },
+        {
+          "id": "rd2",
+          "name_en": "Chief Minister's Solar Powered Green House Scheme",
+          "name_ta": "முதலமைச்சரின் சூரிய சக்தியுடன் கூடிய பசுமை வீடு திட்டம்",
+          "description_en": "Provides free solar-powered green houses to the rural poor.",
+          "description_ta": "கிராமப்புற ஏழைகளுக்கு இலவசமாக சூரிய சக்தியுடன் கூடிய பசுமை வீடுகள் வழங்குகிறது.",
+          "documents": [
+            "Aadhaar Card",
+            "Patta / Land Document (minimum 300 sq.ft)",
+            "Income Certificate",
+            "Ration Card"
+          ],
+          "eligibility_en": [
+            "Must be a poor family living in rural areas",
+            "Must own a site of not less than 300 sq.ft.",
+            "Should not own any other pucca house"
+          ],
+          "eligibility_ta": [
+            "கிராமப்புறங்களில் வாழும் ஏழை குடும்பமாக இருக்க வேண்டும்",
+            "குறைந்தபட்சம் 300 சதுர அடி நிலம் சொந்தமாக இருக்க வேண்டும்",
+            "வேறு எந்த கல் வீடும் இருக்கக்கூடாது"
+          ],
+          "link": "https://www.tnrd.tn.gov.in"
         }
       ]
     }
