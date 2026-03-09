@@ -10,7 +10,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // Use the correct, stable model name
 const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
+    model: "gemini-flash-latest",
     systemInstruction:
         `You are an expert assistant for Tamil Nadu Government Schemes (TNSchemes).
 Your job is to answer user questions clearly and accurately.
