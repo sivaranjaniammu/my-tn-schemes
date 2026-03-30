@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { useAuth } from '../context/AuthContext';
 import LanguageToggle from '../components/LanguageToggle';
 import DocumentWallet from '../components/DocumentWallet';
+import FindMyScheme from '../components/FindMyScheme';
 import { Mic, MicOff, Volume2, Square } from 'lucide-react';
 import '../wallet.css';
 
@@ -25,78 +26,118 @@ function CategoryCard({ category, lang, onClick }) {
 }
 
 /* ── Scheme Card ────────────────────────────────────────────────────── */
-function SchemeCard({ scheme, lang, t }) {
-    const [activePanel, setActivePanel] = useState(null); // 'docs' | 'elig' | null
-
-    const togglePanel = (panel) => {
-        setActivePanel(prev => prev === panel ? null : panel);
-    };
-
+function SchemeCard({ scheme, lang, t, onToggle }) {
+    // Correctly fallback to different potential field names from the JSON
+    const schemeName = scheme[`name_${lang}`] || scheme[`scheme_name_${lang}`] || scheme[`scheme_name`] || scheme[`name_en`];
+    const schemeDesc = scheme[`description_${lang}`] || scheme[`description_en`] || scheme[`description`];
+    
     return (
         <div className="scheme-card">
             <div className="scheme-card-header">
-                <h4 className="scheme-card-title">{scheme[`scheme_name_${lang}`]}</h4>
+                <h4 className="scheme-card-title">{schemeName}</h4>
                 <a
-                    href={scheme.apply_link}
+                    href={scheme.link || scheme.apply_link || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="scheme-apply-btn"
-                    title={t('apply_now')}
                 >
                     {t('apply_now')} ↗
                 </a>
             </div>
 
-            <p className="scheme-card-desc">{scheme[`description_${lang}`]}</p>
+            <p className="scheme-card-desc" style={{ flex: 1 }}>{schemeDesc}</p>
 
             <div className="scheme-card-actions">
                 <button
-                    className={`scheme-action-btn docs-btn ${activePanel === 'docs' ? 'active' : ''}`}
-                    onClick={() => togglePanel('docs')}
+                    className="scheme-action-btn docs-btn"
+                    onClick={() => onToggle(scheme, 'docs')}
                 >
-                    📄 {t('required_docs')}
-                    <span className="toggle-arrow">{activePanel === 'docs' ? '▲' : '▼'}</span>
+                    <span style={{ fontSize: '1.1rem' }}>📄</span>
+                    {t('required_docs')}
                 </button>
                 <button
-                    className={`scheme-action-btn elig-btn ${activePanel === 'elig' ? 'active' : ''}`}
-                    onClick={() => togglePanel('elig')}
+                    className="scheme-action-btn elig-btn"
+                    onClick={() => onToggle(scheme, 'elig')}
                 >
-                    ✅ {t('eligibility')}
-                    <span className="toggle-arrow">{activePanel === 'elig' ? '▲' : '▼'}</span>
+                    <span style={{ fontSize: '1.1rem', color: '#10b981' }}>✅</span>
+                    {t('eligibility')}
                 </button>
             </div>
+        </div>
+    );
+}
 
-            <div
-                className={`accordion-container ${activePanel === 'docs' ? 'expanded' : 'collapsed'}`}
-                aria-hidden={activePanel !== 'docs'}
-            >
-                <div className="scheme-panel docs-panel">
-                    <h5 className="scheme-panel-title">📄 {t('required_docs')}</h5>
-                    <ul className="scheme-panel-list">
-                        {(scheme.documents || []).map((doc, i) => (
-                            <li key={i} className="scheme-panel-item">
-                                <span className="item-dot"></span>
-                                {doc}
-                            </li>
-                        ))}
-                    </ul>
+/* ── Scheme Modal ───────────────────────────────────────────────────── */
+function SchemeModal({ scheme, type, lang, t, onClose }) {
+    if (!scheme) return null;
+
+    const schemeName = scheme[`name_${lang}`] || scheme[`scheme_name_${lang}`] || scheme[`scheme_name`] || scheme[`name_en`];
+    
+    // Robust check for eligibility regardless of exact field name
+    const eligibilityItems = scheme[`eligibility_${lang}`] || 
+                             scheme[`eligibility_en`] || 
+                             scheme[`eligibility`] || 
+                             scheme[`requirements_${lang}`] || 
+                             [];
+
+    // Robust check for documents regardless of exact field name
+    const documentItems = scheme.documents || 
+                          scheme.required_documents || 
+                          scheme[`documents_${lang}`] || 
+                          scheme.docs || 
+                          [];
+
+    const isDocs = type === 'docs';
+    const items = isDocs ? documentItems : eligibilityItems;
+    const title = isDocs ? t('required_docs') : t('eligibility');
+    const icon = isDocs ? '📄' : '✅';
+    const emptyMsg = isDocs ? t('no_requirements') : t('no_eligibility');
+    const accentColor = isDocs ? '#3b82f6' : '#10b981';
+
+    return (
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-content" onClick={e => e.stopPropagation()}>
+                <div className="modal-header" style={{ borderBottomColor: accentColor + '33' }}>
+                    <div className="modal-title-row">
+                        <span className="modal-top-icon">{icon}</span>
+                        <h3 className="modal-title">{title}</h3>
+                    </div>
+                    <button className="modal-close-btn" onClick={onClose}>✕</button>
                 </div>
-            </div>
+                
+                <div className="modal-body">
+                    <div className="modal-scheme-info">
+                        <span className="modal-scheme-label">{t('scheme_name')}</span>
+                        <h4 className="modal-scheme-name">{schemeName}</h4>
+                    </div>
 
-            <div
-                className={`accordion-container ${activePanel === 'elig' ? 'expanded' : 'collapsed'}`}
-                aria-hidden={activePanel !== 'elig'}
-            >
-                <div className="scheme-panel elig-panel">
-                    <h5 className="scheme-panel-title">✅ {t('eligibility')}</h5>
-                    <ul className="scheme-panel-list">
-                        {(scheme[`eligibility_${lang}`] || []).map((item, i) => (
-                            <li key={i} className="scheme-panel-item">
-                                <span className="item-dot green"></span>
-                                {item}
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="modal-list-container">
+                        <ul className="modal-list">
+                            {items.length > 0 ? (
+                                items.map((item, i) => (
+                                    <li key={i} className="modal-list-item">
+                                        <span className={`modal-item-dot ${!isDocs ? 'green' : ''}`}></span>
+                                        {item}
+                                    </li>
+                                ))
+                            ) : (
+                                <li className="modal-list-empty">{emptyMsg}</li>
+                            )}
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="modal-footer">
+                    <a
+                        href={scheme.link || scheme.apply_link || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="modal-apply-btn"
+                        style={{ backgroundColor: accentColor }}
+                    >
+                        {t('apply_now')} ↗
+                    </a>
+                    <button className="modal-secondary-btn" onClick={onClose}>{t('close')}</button>
                 </div>
             </div>
         </div>
@@ -104,7 +145,7 @@ function SchemeCard({ scheme, lang, t }) {
 }
 
 /* ── Chat Message ───────────────────────────────────────────────────── */
-function ChatMessage({ msg, lang, t, categories, onCategorySelect }) {
+function ChatMessage({ msg, lang, t, categories, onCategorySelect, onToggle }) {
     const mainCats = (categories || []).filter(c => c.isMain);
     const otherCats = (categories || []).filter(c => !c.isMain);
 
@@ -176,7 +217,13 @@ function ChatMessage({ msg, lang, t, categories, onCategorySelect }) {
                 {msg.schemes && msg.schemes.length > 0 && (
                     <div className="chat-schemes-list">
                         {msg.schemes.map(s => (
-                            <SchemeCard key={s._id || s.id} scheme={s} lang={lang} t={t} />
+                            <SchemeCard 
+                                key={s._id || s.id} 
+                                scheme={s} 
+                                lang={lang} 
+                                t={t} 
+                                onToggle={onToggle}
+                            />
                         ))}
                     </div>
                 )}
@@ -201,6 +248,7 @@ export default function Dashboard() {
     const [searchQuery, setSearchQuery] = useState('');
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [view, setView] = useState('chat'); // 'chat' | 'schemes'
+    const [selectedScheme, setSelectedScheme] = useState(null); // { scheme, type }
     const [isListening, setIsListening] = useState(false);
 
     const recognitionRef = useRef(null);
@@ -331,6 +379,44 @@ export default function Dashboard() {
         }
     };
 
+    const handleFormSubmit = async (formData, isPureAI = false) => {
+        const prompt = lang === 'ta' 
+            ? `என் பெயர் ${formData.fullName}, வயது ${formData.age}, பாலினம் ${formData.gender}, மதம் ${formData.religion}, சமூகம் ${formData.community}, வருமானம் ${formData.income}, திருமண நிலை ${formData.maritalStatus}, வேலை ${formData.employment}, கல்வி ${formData.education}, மாற்றுத்திறனாளி: ${formData.differentlyAbled === 'yes' ? 'ஆம்' : 'இல்லை'}. எனக்கான தகுதியான திட்டங்களை கூறு. (குறிப்பு: உங்கள் சொந்த அறிவில் இருந்தே பதிலளிக்கவும், டேட்டாபேஸை பார்க்க தேவையில்லை)`
+            : `My name is ${formData.fullName}, age ${formData.age}, gender ${formData.gender}, religion ${formData.religion}, community ${formData.community}, income ${formData.income}, marital status ${formData.maritalStatus}, occupation ${formData.employment}, education ${formData.education}, differently abled: ${formData.differentlyAbled === 'yes' ? 'Yes' : 'No'}. Please find suitable schemes for me. (Note: Provide suggestions solely from your knowledge as an AI, ignoring the local database context).`;
+
+        if (!isPureAI) {
+            setView('chat');
+            setSidebarOpen(false);
+            addUserMessage(lang === 'ta' ? 'எனக்கான திட்டங்களை தேடு (பைண்ட் மை ஸ்கீம்)...' : 'Find schemes for my profile (Find My Scheme)...');
+            setIsTyping(true);
+        }
+
+        try {
+            const res = await axios.post(`/api/chat/message`, {
+                message: prompt,
+                lang: lang
+            }, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+
+            if (isPureAI) {
+                return res.data.text;
+            }
+
+            setIsTyping(false);
+            addBotMessage(res.data.text, {
+                showCategories: res.data.showCategories || false,
+                schemes: res.data.schemes || []
+            });
+
+        } catch (err) {
+            if (isPureAI) throw err;
+            setIsTyping(false);
+            addBotMessage(t('search_error'));
+            console.error("AI API Error form:", err);
+        }
+    };
+
     const handleCategorySelect = async (category) => {
         setSelectedCategory(category);
         setView('schemes');
@@ -360,6 +446,13 @@ export default function Dashboard() {
 
     const handleWalletSelect = () => {
         setView('wallet');
+        setSelectedCategory(null);
+        setSchemes([]);
+        setSidebarOpen(false);
+    };
+
+    const handleFindSchemeSelect = () => {
+        setView('find_scheme');
         setSelectedCategory(null);
         setSchemes([]);
         setSidebarOpen(false);
@@ -410,6 +503,13 @@ export default function Dashboard() {
                     >
                         <span className="sidebar-nav-icon">🗂️</span>
                         <span>{lang === 'ta' ? 'ஆவணங்கள்' : 'Document Wallet'}</span>
+                    </button>
+                    <button
+                        className={`sidebar-nav-item ${view === 'find_scheme' ? 'active' : ''}`}
+                        onClick={handleFindSchemeSelect}
+                    >
+                        <span className="sidebar-nav-icon">🔍</span>
+                        <span>{lang === 'ta' ? 'எனது திட்டத்தை தேடு' : 'Find My Scheme'}</span>
                     </button>
 
                     <p className="sidebar-nav-label">{t('categories')}</p>
@@ -477,7 +577,9 @@ export default function Dashboard() {
                                     ? `${selectedCategory.icon} ${selectedCategory[`name_${lang}`]}`
                                     : view === 'wallet'
                                         ? `🗂️ ${lang === 'ta' ? 'ஆவணங்கள்' : 'Document Wallet'}`
-                                        : `🤖 ${t('chatbot_title')}`}
+                                        : view === 'find_scheme'
+                                            ? `🔍 ${lang === 'ta' ? 'எனது திட்டத்தை தேடு' : 'Find My Scheme'}`
+                                            : `🤖 ${t('chatbot_title')}`}
                             </h2>
                             {view === 'schemes' && selectedCategory && (
                                 <p className="header-subtitle">
@@ -506,6 +608,7 @@ export default function Dashboard() {
                                     t={t}
                                     categories={categories}
                                     onCategorySelect={handleCategorySelect}
+                                    onToggle={(scheme, type) => setSelectedScheme({ scheme, type })}
                                 />
                             ))}
                             {isTyping && (
@@ -598,7 +701,14 @@ export default function Dashboard() {
                                     </div>
                                 ) : (
                                     filteredSchemes.map(s => (
-                                        <SchemeCard key={s._id} scheme={s} lang={lang} t={t} />
+                                        <SchemeCard 
+                                            key={s._id} 
+                                            scheme={s} 
+                                            lang={lang} 
+                                            t={t} 
+                                            onToggle={(scheme, type) => setSelectedScheme({ scheme, type })}
+
+                                        />
                                     ))
                                 )}
                             </div>
@@ -616,6 +726,28 @@ export default function Dashboard() {
                         </div>
                         <DocumentWallet t={t} lang={lang} />
                     </div>
+                )}
+
+                {/* ── Find My Scheme View ─────────────────────────────────────── */}
+                {view === 'find_scheme' && (
+                    <div className="schemes-area">
+                        <div className="schemes-toolbar">
+                            <button className="back-btn" onClick={handleBack}>
+                                ← {t('back')}
+                            </button>
+                        </div>
+                        <FindMyScheme onSubmitForm={handleFormSubmit} t={t} lang={lang} />
+                    </div>
+                )}
+
+                {selectedScheme && (
+                    <SchemeModal 
+                        scheme={selectedScheme.scheme} 
+                        type={selectedScheme.type} 
+                        lang={lang} 
+                        t={t} 
+                        onClose={() => setSelectedScheme(null)} 
+                    />
                 )}
             </div>
         </div>

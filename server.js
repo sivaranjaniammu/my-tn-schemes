@@ -37,13 +37,12 @@ const GOOGLE_CALLBACK_URL =
     `http://localhost:${PORT}/api/auth/google/callback`;
 
 // ── Database ──────────────────────────────────────────────────────────────
-mongoose
-    .connect(process.env.MONGO_URI)
-    .then(() => console.log("✅  MongoDB connected"))
-    .catch((err) => {
-        console.error("❌  MongoDB connection failed:", err.message);
-        console.warn("⚠️   Server will start but auth features won't work until MongoDB is running.");
-    });
+
+mongoose.connect(process.env.MONGO_URI, {
+    serverSelectionTimeoutMS: 5000
+})
+.then(() => console.log("✅ MongoDB connected"))
+.catch(err => console.log("❌ FULL ERROR:", err));
 
 // ── CORS ──────────────────────────────────────────────────────────────────
 // Allow the Express server itself, Vite dev server, and CLIENT_URL

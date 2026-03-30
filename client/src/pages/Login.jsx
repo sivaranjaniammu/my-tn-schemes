@@ -66,7 +66,8 @@ export default function Login() {
     };
 
     const handleGoogleLogin = () => {
-        window.location.href = '/api/auth/google';
+        const apiBase = import.meta.env.VITE_API_URL || '';
+        window.location.href = `${apiBase}/api/auth/google`;
     };
 
     return (

@@ -62,6 +62,8 @@ const resources = {
             "filter_schemes": "Filter schemes...",
             "loading_schemes": "Loading schemes",
             "no_schemes_found": "No schemes match your filter",
+            "no_requirements": "No specific requirements listed.",
+            "no_eligibility": "No specific eligibility criteria listed.",
 
             // Bot messages
             "bot_greeting": "👋 Hello! I'm your TN Scheme Assistant. Type \"Hi\" or click a category to explore Tamil Nadu government schemes.",
@@ -71,7 +73,7 @@ const resources = {
             "search_error": "❌ Search failed. Please try again.",
 
             // Scheme card
-            "required_docs": "Required Documents",
+            "required_docs": "Requirements",
             "eligibility": "Eligibility",
             "apply_now": "Apply Now",
 
@@ -151,6 +153,8 @@ const resources = {
             "filter_schemes": "திட்டங்களை வடிகட்டு...",
             "loading_schemes": "திட்டங்களை ஏற்றுகிறது",
             "no_schemes_found": "உங்கள் வடிகட்டலுக்கு திட்டங்கள் இல்லை",
+            "no_requirements": "குறிப்பிட்ட தேவைகள் எதுவும் இல்லை",
+            "no_eligibility": "குறிப்பிட்ட தகுதிகள் எதுவும் இல்லை",
 
             // Bot messages
             "bot_greeting": "👋 வணக்கம்! நான் உங்கள் TN திட்ட உதவியாளர். தமிழ்நாடு அரசு திட்டங்களை ஆராய \"வணக்கம்\" என்று தட்டச்சு செய்யவும் அல்லது ஒரு பிரிவைக் கிளிக் செய்யவும்.",
@@ -160,8 +164,8 @@ const resources = {
             "search_error": "❌ தேடல் தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்.",
 
             // Scheme card
-            "required_docs": "தேவையான ஆவணங்கள்",
-            "eligibility": "தகுதி",
+            "required_docs": "தேவைகள்",
+            "eligibility": "தகுதிகள்",
             "apply_now": "விண்ணப்பிக்க",
 
             // Input
